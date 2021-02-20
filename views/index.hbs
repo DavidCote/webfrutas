@@ -1,0 +1,29 @@
+<div class="row">
+  {{#each prod}}
+    <div class="col-md-3">
+      <div class="card" style="width: 18rem;">
+        <img src="{{imgurl}}" class="card-img-top">
+          <div class="card-body mx-auto">
+            <h5 class="card-title">Tipo: {{tipo}}</h5>
+            <h5>Nombre: {{nombre}}</h5>
+            <h5>Color: {{color}}</h5>
+            <h5>Existencias: {{existencias}}</h5>
+            <h5>Precion: {{precio}}</h5>
+            <a href="#" class="btn btn-primary">Comprar</a>
+            <a href="/tienda/editar/{{_id}}" class="btn btn-secondary">Editar</a>
+            <form action="/tienda/borrar/{{_id}}?_method=DELETE" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="btn btn-danger btn-block" type="submit">Eliminar</button>
+            </form>
+          </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="col-md-4 mx-auto">
+      <div class="card-body">
+        <p>No hay inventario</p>
+        <a href="/tienda/nuevo"  class="btn btn-success btn-block">Agregar inventario</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
